@@ -10,7 +10,11 @@ namespace src.LibraryManagement
 {
     public class Customer : Person, ICustomerActions
     {
-        public void BorrowBook(Book book)
+
+        public Customer(string name,int id):base(name,id){
+            
+        }
+            public void BorrowBook(Book book)
         {
             throw new NotImplementedException();
         }

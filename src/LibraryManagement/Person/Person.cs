@@ -9,7 +9,11 @@ namespace src.LibraryManagement
 {
     public abstract class Person
     {
-     private string _Name;
-     private readonly int _Id;   
+    public Person(string name,int id){
+        Name=name;
+        Id=id;
+    }
+     private string Name{get; set;}
+     private  int Id{get; set;}   
     }
 }

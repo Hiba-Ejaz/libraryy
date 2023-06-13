@@ -9,29 +9,53 @@ using System.Threading.Tasks;
 
 namespace src.LibraryManagement
 {
-    public class Library
+    public class Library:ICustomerActions,ILibrarianActions
     {
-        public void AddBook(){
+        public Library(){
+            
+        }
+        private List<Person> people=new List<Person>();
+        private List<Book> books=new List<Book>();
+
+        public void AddPerson(Person person){
 
         }
-        public void RemoveBook(){
+        public void RemovePerson(Person person){
             
         }
-        public void BorrowBook(){
-            
-        }
-        public void ReturnBook(){
-            
-        }
-        public void AddPerson(){
-
-        }
-        public void RemovePerson(){
-            
-        }
-        public void EditPerson(){
+        public void EditPerson(Person person){
             
         }
 
+        public void BorrowBook(Book book)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReturnBook(Book book)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddBook(Book book)
+        {
+            if(book!=null){
+           bool isBookUnique=books.Exists(b=>b.ISBN==book.ISBN);
+            if (books.Exists(b => b.ISBN == book.ISBN))
+            {
+            Console.WriteLine("Book with the same ISBN already exists in the library.");
+        }
+        else
+          {
+            books.Add(book);
+            Console.WriteLine("Book added successfully.");
+             }
+            }
+        }
+
+        public void RemoveBook(Book book)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
