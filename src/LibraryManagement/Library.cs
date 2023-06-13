@@ -12,7 +12,7 @@ namespace src.LibraryManagement
     public class Library:ICustomerActions,ILibrarianActions
     {
         public Library(){
-            
+
         }
         private List<Person> people=new List<Person>();
         private List<Book> books=new List<Book>();
@@ -41,7 +41,7 @@ namespace src.LibraryManagement
         {
             if(book!=null){
            bool isBookUnique=books.Exists(b=>b.ISBN==book.ISBN);
-            if (books.Exists(b => b.ISBN == book.ISBN))
+            if (!isBookUnique)
             {
             Console.WriteLine("Book with the same ISBN already exists in the library.");
         }
