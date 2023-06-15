@@ -7,7 +7,7 @@ namespace src.LibraryManagement
 {
     public interface IBorrowable
     {
-        public void BorrowBook();
-        public void ReturnBook();
+        public void BorrowBook(Book book);
+        public void ReturnBook(Book book);
     }
 }

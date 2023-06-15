@@ -14,12 +14,13 @@ namespace src.LibraryManagement
         }
         private string Genre{get; set;}
 
-        public void BorrowBook()
+        public void BorrowBook(Book book)
         {
-            throw new NotImplementedException();
+           Console.WriteLine("inside Novel BorrowBook");
         }
+        
 
-        public void ReturnBook()
+        public void ReturnBook(Book book)
         {
             throw new NotImplementedException();
         }

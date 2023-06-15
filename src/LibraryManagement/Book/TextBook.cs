@@ -12,9 +12,9 @@ namespace src.LibraryManagement
             : base(isbn, title, author, pubDate, canBorrow, canPrint)
         {
         }
-        public void BorrowBook()
+        public void BorrowBook(Book book)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("inside TextBook BorrowBook");
         }
 
         public void PrintPages(int startPage,int endPage)
@@ -22,7 +22,7 @@ namespace src.LibraryManagement
             throw new NotImplementedException();
         }
 
-        public void ReturnBook()
+        public void ReturnBook(Book book)
         {
             throw new NotImplementedException();
         }

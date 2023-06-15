@@ -8,20 +8,30 @@ namespace src.LibraryManagement
     public class Comic:Book,IBorrowable
     {
 
-    public Comic(int isbn, string title, string author, DateOnly pubDate, bool canBorrow, bool CanPrint, string artist)
+    private Library _Library;
+    public Comic(int isbn, string title, string author, DateOnly pubDate, bool canBorrow, bool CanPrint, string artist,Library library)
         : base(isbn, title, author, pubDate, canBorrow, CanPrint)
     {
+        _Library=library;
         Artist = artist;
-    }        private string Artist{get; set;}
+    }        
+        private string Artist{get; set;}
 
-        public void BorrowBook()
+        public void BorrowBook(Book book)
         {
-            throw new NotImplementedException();
+            Book foundBook=_Library.FindBook(book.ISBN);
+            if(foundBook==null){
+                Console.WriteLine("Book not found");
+            }
+            else{
+                _Library.BorrowBook(book);
+            }
+
         }
 
-        public void ReturnBook()
+        public void ReturnBook(Book book)
         {
-            throw new NotImplementedException();
+                _Library.ReturnBook(book); 
         }
         public override void PrintInfo(Book book)
         {

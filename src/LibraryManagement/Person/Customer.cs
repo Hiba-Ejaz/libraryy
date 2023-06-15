@@ -10,18 +10,24 @@ namespace src.LibraryManagement
 {
     public class Customer : Person, ICustomerActions
     {
-
-        public Customer(string name,int id):base(name,id){
-            
+        private Library _Library;
+        public Customer(string name,int id,Library library):base(name,id){
+           this._Library=library;
         }
             public void BorrowBook(Book book)
         {
-            throw new NotImplementedException();
+             if (book is IBorrowable borrowableBook) //dynamic polymorphism (infers type of book and checks if it implements IBorrowable, if yes, assigns it to variable (borrowableBook)) 
+             {
+             borrowableBook.BorrowBook(book);
+             }
         }
 
         public void ReturnBook(Book book)
         {
-            throw new NotImplementedException();
+             if (book is IBorrowable returnBook) //dynamic polymorphism (infers type of book and checks if it implements IBorrowable, if yes, assigns it to variable (borrowableBook)) 
+             {
+             returnBook.ReturnBook(book);
+             }
         }
     }
 }

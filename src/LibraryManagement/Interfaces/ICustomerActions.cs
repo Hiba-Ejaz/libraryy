@@ -7,7 +7,7 @@ namespace src.LibraryManagement
 {
     public interface ICustomerActions
     {
-         public void BorrowBook(Book book);
+        public void BorrowBook(Book book);
         public void ReturnBook(Book book);
     }
 }
