@@ -19,6 +19,12 @@ namespace src.LibraryManagement
         private List<Book> books = new List<Book>();
         private List<Book> borrowedBooks = new List<Book>();
 
+        // public override string ToString()
+        // {
+        //     foreach(Book b in books){
+        //      return $"{b.Author}";
+        //     }
+        // }
         public void AddPerson(Person person)
         {
 
@@ -94,5 +100,60 @@ namespace src.LibraryManagement
                 }
             }
         }
-    }
-}
+         //public void EditBook(Book book,int? isbn=null,string newTitle=null,string newAuthor=null,DateOnly? newPubDate=null,string newAdditionalFeature = null)
+         public void EditBook(Book book,int isbn,string newTitle,string newAuthor,DateOnly newPubDate,string newAdditionalFeature )
+        {
+            if (book != null)
+            {
+                Book bookToEdit=FindBook(book.ISBN);
+                Console.WriteLine($"book before editing :*isbn {bookToEdit.ISBN} title : {bookToEdit.Title} publicationYear :{bookToEdit.PublicationYear} author: {bookToEdit.Author} ");
+                if(bookToEdit is Comic comic){
+                    Console.WriteLine($"Artist : {comic.Artist}");
+                }
+                else if(bookToEdit is Novel novel){
+                    Console.WriteLine($"Artist : {novel.Genre}");
+                }
+                if (bookToEdit==null)
+                {
+                    Console.WriteLine("there is no relevant book to edit");
+                }
+                else
+                {
+                    //if(isbn!=null){
+                        if(bookToEdit.ISBN!=isbn)
+                        Console.WriteLine("isbn cannot be updated");
+                   // }
+                   // else if(newTitle!=null){
+                    Console.WriteLine("title new one "+newTitle);
+                      bookToEdit.Title=newTitle;  
+                   // }
+                    // else if(newAuthor!=null){
+                      bookToEdit.Author=newAuthor;  
+                   // }
+                   // else if(newPubDate!=null){
+                      bookToEdit.PublicationYear=newPubDate;
+                   // }
+                   //  else if(newAdditionalFeature!=null){
+                    if(bookToEdit is Comic comicBook){
+                      comicBook.Artist=newAdditionalFeature;
+                   }
+                     else if(bookToEdit is Novel novelBook){
+                        novelBook.Genre=newAdditionalFeature;
+                   }
+                     }
+                    Console.WriteLine("Book edited successfully.");
+                    Book bookAfterEdit=FindBook(book.ISBN);
+                    if(bookAfterEdit!=null){
+                    Console.WriteLine($"book after editing :*isbn {bookToEdit.ISBN} title : {bookToEdit.Title} publicationYear :{bookToEdit.PublicationYear} author: {bookToEdit.Author} ");
+                    if(bookAfterEdit is Comic comicAfterEdit){
+                    Console.WriteLine($"Artist : {comicAfterEdit.Artist}");
+                    }
+                    else if(bookAfterEdit is Novel novelAfterEdit){
+                    Console.WriteLine($"Artist : {novelAfterEdit.Genre}");
+                    }
+                    }
+                }
+                }
+            }
+        }
+    

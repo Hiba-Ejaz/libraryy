@@ -12,7 +12,7 @@ namespace src.LibraryManagement
         {
             Genre=genre;
         }
-        private string Genre{get; set;}
+        public string Genre{get; set;}
 
         public void BorrowBook(Book book)
         {

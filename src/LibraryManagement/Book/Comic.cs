@@ -15,7 +15,7 @@ namespace src.LibraryManagement
         _Library=library;
         Artist = artist;
     }        
-        private string Artist{get; set;}
+        public string Artist{get; set;}
 
         public void BorrowBook(Book book)
         {

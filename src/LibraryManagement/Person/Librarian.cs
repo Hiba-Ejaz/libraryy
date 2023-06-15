@@ -38,7 +38,7 @@ namespace src.LibraryManagement
                 library.RemoveBook(book);
             }
         }
-        public void EditBook(Book book)
+        public void EditBook(Book book,int isbn,string newTitle,string newAuthor,DateOnly newPubDate,string artist)
         {
            if (book == null)
             {
@@ -47,6 +47,8 @@ namespace src.LibraryManagement
             else
             {
                 Console.WriteLine("book forwaded to library for editing");
+                library.EditBook(book,isbn,newTitle,newAuthor,newPubDate,artist);
+
             }
         }
     }
