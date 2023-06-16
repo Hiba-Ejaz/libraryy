@@ -26,14 +26,20 @@ namespace src.LibraryManagement
 {
     public abstract class Book
     {
-        public Book(int isbn, string title, string author, DateOnly pubDate, bool canBorrow, bool canPrint)
+        public Book(int isbn, string title, string author, DateOnly pubDate)
         {
             ISBN = isbn;
             Title = title;
             Author = author;
             PublicationYear = pubDate;
-            CanBorrow = canBorrow;
-            CanPrint = canPrint;
+            if(this is IBorrowable){
+                CanBorrow = true;
+                Console.WriteLine("borrowable");
+            }
+            if(this is IPrintable){
+            CanPrint = true;
+            Console.Write("printable");
+            }
         }
         public string Title { get; set; }
         public string Author { get; set; }
@@ -41,9 +47,23 @@ namespace src.LibraryManagement
         public DateOnly PublicationYear { get; set; }
         public bool CanBorrow { get; set; }
         public bool CanPrint { get; set; }
-        public virtual void PrintInfo(Book book)
+        public virtual void PrintInfo()
         {
-            Console.WriteLine(book.Title, book.ISBN, book.Author);
+        Console.WriteLine("Title: " + this.Title);
+        Console.WriteLine("Author: " + this.Author);
+        Console.WriteLine("ISBN: " + this.ISBN);
+        Console.WriteLine("Publication Year: " + this.PublicationYear);
+       // Console.WriteLine("Can Borrow: " + this.);
+        //Console.WriteLine("Can Print: " + CanPrint);
+        
+        }
+        public virtual void PrintPages(int startPage,int endPage)
+        {
+            if(!(this is IPrintable printableBook)){
+                Console.WriteLine("this book is not printable");
+            }
+            //Console.WriteLine(book.Title, book.ISBN, book.Author);
         }
     }
+
 }

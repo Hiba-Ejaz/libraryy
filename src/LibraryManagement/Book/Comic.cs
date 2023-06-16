@@ -8,15 +8,14 @@ namespace src.LibraryManagement
     public class Comic:Book,IBorrowable
     {
 
-    private Library _Library;
-    public Comic(int isbn, string title, string author, DateOnly pubDate, bool canBorrow, bool CanPrint, string artist,Library library)
-        : base(isbn, title, author, pubDate, canBorrow, CanPrint)
+    private readonly Library _Library;
+    public Comic(int isbn, string title, string author, DateOnly pubDate, string artist,Library library)
+        : base(isbn, title, author, pubDate)
     {
         _Library=library;
         Artist = artist;
     }        
         public string Artist{get; set;}
-
         public void BorrowBook(Book book)
         {
             Book foundBook=_Library.FindBook(book.ISBN);
@@ -33,9 +32,10 @@ namespace src.LibraryManagement
         {
                 _Library.ReturnBook(book); 
         }
-        public override void PrintInfo(Book book)
+        public override void PrintInfo()
         {
-            base.PrintInfo(book);
+            base.PrintInfo();
+            Console.WriteLine("Artist  "+this.Artist);
         }
     }
 }

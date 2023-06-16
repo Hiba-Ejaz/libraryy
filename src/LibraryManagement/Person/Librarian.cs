@@ -28,7 +28,7 @@ namespace src.LibraryManagement
 
         public void RemoveBook(Book book)
         {
-             if (book == null)
+            if (book == null)
             {
                 Console.WriteLine("nothing to delete");
             }
@@ -38,16 +38,16 @@ namespace src.LibraryManagement
                 library.RemoveBook(book);
             }
         }
-        public void EditBook(Book book,int isbn,string newTitle,string newAuthor,DateOnly newPubDate,string artist)
+        public void EditBook(Book book, int isbn, string newTitle, string newAuthor, DateOnly newPubDate, string artist)
         {
-           if (book == null)
+            if (book == null)
             {
                 Console.WriteLine("nothing to edit");
             }
             else
             {
                 Console.WriteLine("book forwaded to library for editing");
-                library.EditBook(book,isbn,newTitle,newAuthor,newPubDate,artist);
+                library.EditBook(book, isbn, newTitle, newAuthor, newPubDate, artist);
 
             }
         }

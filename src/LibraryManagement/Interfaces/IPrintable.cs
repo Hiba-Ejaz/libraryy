@@ -7,6 +7,6 @@ namespace src.LibraryManagement
 {
     public interface IPrintable
     {
-        public void PrintPages(int startPage, int endPage);
+        //public void PrintPages(int startPage, int endPage);
     }
 }
