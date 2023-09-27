@@ -25,39 +25,41 @@ namespace src.LibraryManagement
         //      return $"{b.Author}";
         //     }
         // }
-        public Person FindPerson(int id){
-            Person foundPerson=people.Find(p=>p.Id==id);
-            return foundPerson;      
+        public Person FindPerson(int id)
+        {
+            Person foundPerson = people.Find(p => p.Id == id);
+            return foundPerson;
         }
         public void AddPerson(Person person)
         {
-        Person personExists=FindPerson(person.Id);
-        if(personExists==null)
-        people.Add(person);
-        else
-        Console.WriteLine("person with same id already exists");
+            Person personExists = FindPerson(person.Id);
+            if (personExists == null)
+                people.Add(person);
+            else
+                Console.WriteLine("person with same id already exists");
         }
         public void RemovePerson(Person person)
         {
-         Person personExists=FindPerson(person.Id);
-        if(personExists==null)
-        people.Remove(person);
-        else
-        Console.WriteLine("person doesnot exists");
+            Person personExists = FindPerson(person.Id);
+            if (personExists == null)
+                people.Remove(person);
+            else
+                Console.WriteLine("person doesnot exists");
         }
         public void EditPerson(Person person)
         {
-        Person personExists=FindPerson(person.Id);
-        if(personExists!=null){
-        if(personExists.Id==person.Id)
-        {
-        Console.WriteLine("Id cannot be updated");
-        }
-        personExists.Name=person.Name;
-        Console.WriteLine("name has been updated");
-        }
-        else
-        Console.WriteLine("person with same id already exists");
+            Person personExists = FindPerson(person.Id);
+            if (personExists != null)
+            {
+                if (personExists.Id == person.Id)
+                {
+                    Console.WriteLine("Id cannot be updated");
+                }
+                personExists.Name = person.Name;
+                Console.WriteLine("name has been updated");
+            }
+            else
+                Console.WriteLine("person with same id already exists");
         }
 
         public Book FindBook(int isbn)
